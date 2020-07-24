@@ -33,6 +33,14 @@
         {
             name : 'Bread',
             quantity : 30
+        }
+        ,{
+            name : 'Coke',
+            quantity : 15
+        },
+        {
+            name : 'Pepsi',
+            quantity : 25
         }];
 
         var bought = [];
