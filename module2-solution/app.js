@@ -5,19 +5,21 @@
     .service('ShoppingListCheckOffService',shoppingListCheckOffService);
 
 
-    toBuyController.$inject = ['$scope','ShoppingListCheckOffService'];
-    function toBuyController($scope,ShoppingListCheckOffService){
-        $scope.tobuyitems =  ShoppingListCheckOffService.getbuyitems();
-        $scope.addBoughtItem = function(itemIndex){
+    toBuyController.$inject = ['ShoppingListCheckOffService'];
+    function toBuyController(ShoppingListCheckOffService){
+        var buy = this;
+        buy.tobuyitems =  ShoppingListCheckOffService.getbuyitems();
+        buy.addBoughtItem = function(itemIndex){
              ShoppingListCheckOffService.addBoughtItem(itemIndex);
         }
         
         }
 
-    alreadyBoughtController.$inject = ['$scope','ShoppingListCheckOffService'];
-    function alreadyBoughtController($scope, ShoppingListCheckOffService){
-        $scope.boughtitems = ShoppingListCheckOffService.getboughtitems();
-        console.log($scope.boughtitems)
+    alreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
+    function alreadyBoughtController(ShoppingListCheckOffService){
+        var bought = this;
+        bought.boughtitems = ShoppingListCheckOffService.getboughtitems();
+        
     }
 
     function shoppingListCheckOffService(){
