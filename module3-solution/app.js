@@ -26,17 +26,19 @@
             var promise = MenuSearchService.method(searchTerm);
             promise.then(function (result){
                 
-                if(narrow.items.length === 0 || narrow.searchTerm === ""){
+                if(result.length === 0 || narrow.searchTerm === ""){
                     narrow.errorDisplay = "Nothing Found";
                 }
                 else
                 {
                     narrow.items = result;
+                    narrow.errorDisplay = "";
                 }
                 
             })
             .catch (function () {
                 narrow.errorDisplay = "Nothing Found";
+                narrow.items = [];
             });
         }
 
