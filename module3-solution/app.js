@@ -28,6 +28,7 @@
                 
                 if(result.length === 0 || narrow.searchTerm === ""){
                     narrow.errorDisplay = "Nothing Found";
+                    narrow.items=[];
                 }
                 else
                 {
