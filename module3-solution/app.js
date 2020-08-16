@@ -22,8 +22,8 @@
         narrow.searchTerm = "";
         narrow.errorDisplay = "";
         narrow.items = [];
-        narrow.getMenuItem = function (searchTerm) {
-            var promise = MenuSearchService.method(searchTerm);
+        narrow.getMenuItem = function () {
+            var promise = MenuSearchService.method(narrow.searchTerm);
             promise.then(function (result){
                 
                 if(result.length === 0 || narrow.searchTerm === ""){
