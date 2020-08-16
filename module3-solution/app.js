@@ -20,15 +20,23 @@
     function NarrowItDownController (MenuSearchService) {
         var narrow = this;
         narrow.searchTerm = "";
+        narrow.errorDisplay = "";
         narrow.items = [];
         narrow.getMenuItem = function (searchTerm) {
             var promise = MenuSearchService.method(searchTerm);
             promise.then(function (result){
-                narrow.items = result;
+                
+                if(narrow.items.length === 0 || narrow.searchTerm === ""){
+                    narrow.errorDisplay = "Nothing Found";
+                }
+                else
+                {
+                    narrow.items = result;
+                }
                 
             })
             .catch (function () {
-                console.log("Error")
+                narrow.errorDisplay = "Nothing Found";
             });
         }
 
